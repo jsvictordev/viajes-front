@@ -70,7 +70,8 @@
           }
         ],
         "@typescript-eslint/member-ordering": ["error", { "default": ["signature", "field", "constructor", "method"] }],
-        "jsdoc/no-types": "off"
+        "jsdoc/no-types": "off",
+        "jsdoc/newline-after-description": "off"
       }
     },
     {
