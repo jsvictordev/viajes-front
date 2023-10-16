@@ -15,6 +15,7 @@ export class DaliaCheckValidators {
 
   public messageErrors(control: AbstractControl, formato?: string): string {
     if (control.touched && control.errors != null) {
+      console.log(control.errors);
       if (control.errors['required']) {
         return 'Este campo es requerido';
       }
@@ -36,11 +37,16 @@ export class DaliaCheckValidators {
       if (control.errors['beforeDate']) {
         return 'La fecha ingresada es anterior a hoy';
       }
-      // cREAR MENSAJE PARA VERIFICAR QUE EL USUARIO NO SEA MENOR DE EDAD
-      // cREAR MENSAJE PARA VERIFICAR QUE EL USUARIO NO SOBREPASE LOS 75 AÑOS
+      if (control.errors['edadOk']) {
+        return 'La edad requerida es entre los 18 y 75 años';
+      }
+
       if (control.errors['pattern']) {
         if (formato === 'email') {
           return 'El formato del correo electrónico no es válido';
+        }
+        if (formato === 'telefono') {
+          return 'El teléfono no es válido';
         }
       }
       return '';

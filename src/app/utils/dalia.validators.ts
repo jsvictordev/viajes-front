@@ -8,15 +8,6 @@ import * as moment from 'moment';
 export class DaliaValidators {
   constructor() {}
 
-  /**
-   * Valida que el control no vaya unicamente con espacios en blanco
-   * @date 10/11/2023 - 5:42:56 PM
-   * @author Victor R. Jose
-   *
-   * @public
-   * @param {FormControl} control
-   * @returns {*}
-   */
   public noWhiteSpace(control: FormControl): any {
     if (control.value == '') {
       return null;
@@ -27,16 +18,6 @@ export class DaliaValidators {
     }
   }
 
-  /**
-   * Valida que la fecha seleccionada no sea posterior a hoy
-   *
-   * @date 6/8/2022 - 12:07:31
-   * @author Victor R. Jose Santiago
-   *
-   * @public
-   * @param control
-   * @returns
-   */
   public noAfterNowDate(control: FormControl): any {
     if (control.value == null) {
       return null;
@@ -47,16 +28,6 @@ export class DaliaValidators {
     }
   }
 
-  /**
-   * Valida que la fecha seleccionada no sea anterior a hoy
-   *
-   * @date 6/8/2022 - 12:07:49
-   * @author Victor R. Jose Santiago
-   *
-   * @public
-   * @param control
-   * @returns
-   */
   public noBeforeNowDate(control: FormControl): any {
     if (control.value == null) {
       return null;
@@ -67,6 +38,15 @@ export class DaliaValidators {
     }
   }
 
-  // cREAR VALIDADOR PARA VERIFICAR QUE EL USUARIO NO SEA MENOR DE EDAD
-  // cREAR VALIDADOR PARA VERIFICAR QUE EL USUARIO NO SOBREPASE LOS 75 AÑOS
+  public ageOk(control: FormControl): any {
+    if (control.value == null) {
+      return null;
+    } else {
+      if (control.value > 18 && control.value < 75) {
+        return { edadOk: null };
+      } else {
+        return { edadOk: true };
+      }
+    }
+  }
 }
